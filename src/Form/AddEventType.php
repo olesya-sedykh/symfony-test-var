@@ -7,6 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 class AddEventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -14,9 +17,14 @@ class AddEventType extends AbstractType
         $builder
             ->add('name')
             ->add('content')
-            ->add('image')
-            ->add('date', null, [
+            ->add('image', FileType::class, [
+                'label' => 'Выберите изображение',
+                'required' => false,
+            ])
+            ->add('date', DateTimeType::class, [
+                'data' => new \DateTime(),
                 'widget' => 'single_text',
+                'required' => true,
             ])
             ->add('category')
         ;

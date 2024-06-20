@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# add_event:
+#     path: /add_event
+#     controller: App\Controller\EventController::addEvent
+#     methods: ['GET', 'POST']

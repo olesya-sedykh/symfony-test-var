@@ -10,6 +10,11 @@ use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Form\AddEventType;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 
@@ -18,6 +23,7 @@ use ApiPlatform\Metadata\Get;
     operations: [
         new GetCollection(),
         new Get(),
+        new Post(),
         ]
 )]
 class Event
